@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="515" leftMargin="56" rightMargin="41" topMargin="25" bottomMargin="56" uuid="8eab2125-b588-46a9-80d6-bd34bab16f74">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="IdPaciente" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\SISTEMA CLINICA DENTAL\\sysClinicaDental\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM recetamedica WHERE IdPaciente=$P{IdPaciente}]]>
+	</queryString>
+	<field name="IdReceta" class="java.lang.String"/>
+	<field name="IdPaciente" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="125" splitType="Stretch">
+			<subreport>
+				<reportElement x="7" y="6" width="484" height="109" uuid="fec3ff9b-1999-43d6-a723-e205416aca9a"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteEncabezadoEmpresa.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="93">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="515" height="85" forecolor="#0033FF" backcolor="#CCCCFF" uuid="461b9e31-aed5-4bc7-9b3b-35dad7582814"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="126" y="2" width="282" height="26" forecolor="#FF0000" uuid="8b631e15-8683-4d8a-97d2-e4c756441dfc"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL PACIENTE]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="9" y="28" width="482" height="53" uuid="3e65c804-0b9a-45eb-af2b-e3d52eed1edc"/>
+				<subreportParameter name="idPac">
+					<subreportParameterExpression><![CDATA[$F{IdPaciente}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteDatosPaciente.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="5" width="515" height="28" forecolor="#FFFFFF" backcolor="#CCCCFF" uuid="9bf1491b-efb5-430d-8bf3-fc65e5906583"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="82" y="5" width="356" height="26" forecolor="#FF0000" uuid="3742c9cd-6713-4e80-b227-783477f62af9"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECETAS MEDICAS EMITADAS PARA EL PACIENTE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="128" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="3" width="133" height="28" forecolor="#FFFFFF" backcolor="#CCCCFF" uuid="7e26d266-e56e-4738-93f0-4683b055493d"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="5" width="64" height="20" uuid="358983a5-203d-456d-a4d0-61fe54aa9f78"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº Receta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="69" y="5" width="64" height="20" uuid="044a0d82-01e3-4c69-bbb1-6dd8bd112e46"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IdReceta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="5" width="165" height="20" uuid="1e58db62-de8f-423e-811b-c0770871b2e6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="161" y="5" width="112" height="20" uuid="8c9fa4da-dddb-4b79-baa0-27ccac95f16f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emisión:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="4" y="36" width="486" height="87" uuid="370b26b2-bfda-4563-8715-6e60ab13e6db"/>
+				<subreportParameter name="idR">
+					<subreportParameterExpression><![CDATA[$F{IdReceta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteRecetaMedicamentos.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

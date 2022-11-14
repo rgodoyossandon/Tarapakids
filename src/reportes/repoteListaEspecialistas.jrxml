@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="514" leftMargin="56" rightMargin="42" topMargin="26" bottomMargin="56" uuid="8b489049-b809-4a02-a965-9e43498841a5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\SISTEMA CLINICA DENTAL\\sysClinicaDental\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from especialista]]>
+	</queryString>
+	<field name="IdEspecialista" class="java.lang.String"/>
+	<field name="dui" class="java.lang.String"/>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="apellidos" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="departamento" class="java.lang.String"/>
+	<field name="municipio" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="celular" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="109" splitType="Stretch">
+			<subreport>
+				<reportElement x="5" y="0" width="462" height="100" uuid="802e80cc-eb6a-459d-93b6-44ce51760d94"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteEncabezadoEmpresa.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="46" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="7" width="514" height="28" forecolor="#0033FF" backcolor="#CCCCFF" uuid="5c45540d-3b69-488b-9dbd-929758e0bfc0"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="72" y="12" width="390" height="23" forecolor="#FF0000" uuid="c248caeb-4246-4533-a2b0-236a70a02b5f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTADO ESPECIALISTAS DE LA CLINICA DENTAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="110" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="134" height="20" forecolor="#3366FF" backcolor="#F0F0F0" uuid="c113e021-9199-4bd2-8535-b5370c71e86c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="24" width="65" height="20" uuid="8c7a84f8-3b7f-4eb9-ae5c-f771e57fec15"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nobres:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="43" width="65" height="20" uuid="41f3ccd7-4d7e-4851-9ba8-f601b492f090"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="43" width="54" height="20" uuid="f1c4dabb-40eb-45bb-8a3d-27a65f8073d1"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Celular:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="22" width="55" height="20" uuid="020f2d76-ce3d-458b-b006-d2abb281bb52"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="77" width="72" height="20" uuid="c46b2983-f62a-4d06-89eb-3d86540e81ac"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Departamento:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="44" y="102" width="418" height="1" forecolor="#3366FF" uuid="05568fe6-4c07-4f86-93c8-eb3d1e96e887"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="5" y="4" width="84" height="20" uuid="2d17e7b7-275c-4e06-b673-c7c0f328df08"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cod. Especialista:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="1" width="42" height="20" uuid="4b3f717d-6d4f-4bcb-96e5-680547745b7b"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº DUI:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="77" width="56" height="20" uuid="965c8ca7-566b-4d1e-812d-2c53b4854893"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Municipio:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="88" y="4" width="63" height="20" uuid="1825a924-7cf5-4ef4-b49b-d5c870d4ab45"/>
+				<textFieldExpression><![CDATA[$F{IdEspecialista}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="1" width="121" height="20" uuid="d445544d-d722-46e4-9aaf-545f7222df3d"/>
+				<textFieldExpression><![CDATA[$F{dui}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="24" width="100" height="20" uuid="4709e5a0-3177-42e5-b370-5953be0dcdfb"/>
+				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="225" y="24" width="125" height="20" uuid="5741ea1b-2290-4093-8892-395122b68a38"/>
+				<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="22" width="100" height="20" uuid="1b9b9185-df3a-4d0e-ad9f-e26fab5035af"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="43" width="100" height="20" uuid="af066ef3-5003-4e96-a64a-95603d3d32cf"/>
+				<textFieldExpression><![CDATA[$F{celular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="43" width="279" height="34" uuid="063952e2-2560-47c8-aaf2-73a8ae820631"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="77" width="94" height="20" uuid="04aec377-c530-4309-9a36-16e00ba72890"/>
+				<textFieldExpression><![CDATA[$F{departamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="225" y="77" width="263" height="20" uuid="88e8c32b-c0dd-487c-b528-e5478485dba9"/>
+				<textFieldExpression><![CDATA[$F{municipio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="174" y="24" width="58" height="20" uuid="c7f770b9-bd4c-4552-a778-524c30e74175"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="29" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="5" y="0" width="160" height="20" uuid="576e189c-d7a7-4fa0-9f56-e141d6f4d156"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="462" y="0" width="40" height="20" uuid="c8653ed7-a862-4ea2-b834-c58e14a08a21"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="0" width="80" height="20" uuid="714edf22-8465-4cbc-99bc-e0d8b0c3cb88"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

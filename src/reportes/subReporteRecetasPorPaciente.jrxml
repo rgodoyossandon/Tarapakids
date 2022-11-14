@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="515" leftMargin="56" rightMargin="41" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idPaciente" class="java.lang.String"/>
+	<parameter name="idRec" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="idMed" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT detallerecetamedica.*, medicamentos.nombreMedicamento FROM detallerecetamedica, medicamentos WHERE IdReceta=$P{idRec} ]]>
+	</queryString>
+	<field name="IdReceta" class="java.lang.String"/>
+	<field name="IdMedicamento" class="java.lang.String"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="precio" class="java.math.BigDecimal"/>
+	<field name="total" class="java.math.BigDecimal"/>
+	<field name="nombreMedicamento" class="java.lang.String"/>
+	<variable name="nMed" class="java.lang.String"/>
+	<columnHeader>
+		<band height="37"/>
+	</columnHeader>
+	<detail>
+		<band height="88" splitType="Stretch">
+			<textField>
+				<reportElement x="59" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{IdReceta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="59" height="20"/>
+				<textElement/>
+				<text><![CDATA[IdReceta]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="40" width="44" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="44" height="20"/>
+				<textElement/>
+				<text><![CDATA[cantidad]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="40" width="134" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="141" y="20" width="54" height="20"/>
+				<textElement/>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="40" width="97" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nombreMedicamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="44" y="20" width="97" height="20"/>
+				<textElement/>
+				<text><![CDATA[nombreMedicamento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="275" y="40" width="37" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="275" y="20" width="37" height="20"/>
+				<textElement/>
+				<text><![CDATA[precio]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="40" width="39" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="312" y="20" width="24" height="20"/>
+				<textElement/>
+				<text><![CDATA[total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="364" y="40" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{IdMedicamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="364" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[IdMedicamento]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="158" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b7e16389-e018-40ee-aeed-7b4bd7f8dbef">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from datosempresa;]]>
+	</queryString>
+	<field name="IdEmpresa" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="razonSocial" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ubicacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="paisEmpresa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ciudadEmpresa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeroRegistro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="whatsaap" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="facebook" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="158" splitType="Stretch">
+			<textField>
+				<reportElement x="57" y="13" width="512" height="44" forecolor="#0033CC" uuid="ec18b4ed-ced5-4d49-837f-b6da0a01bf2d"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razonSocial}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="56" y="152" width="500" height="1" uuid="ef47c84d-a8cd-4e76-aa18-949a23685cdc"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineColor="#003399"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="318" y="79" width="100" height="20" uuid="efd515c7-0de0-482c-87a9-5dae7c74d3a1"/>
+				<textFieldExpression><![CDATA[$F{nit}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="275" y="79" width="43" height="20" uuid="d781a358-d9f5-4d89-971c-d92bd1f165b5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° NIT:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="479" y="79" width="79" height="20" uuid="1e74bebd-8d82-481f-86d6-f15bb558d99b"/>
+				<textFieldExpression><![CDATA[$F{numeroRegistro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="419" y="79" width="60" height="20" uuid="e37f64ab-b511-4d4e-a7b8-d83c9373d21a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Registro:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="104" y="104" width="112" height="20" uuid="6021c416-8f85-4a5e-9874-573b1fd217c1"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="57" y="104" width="46" height="20" uuid="73cb64b3-4fda-41ad-978b-f8b068f70421"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="274" y="104" width="112" height="20" uuid="7d370bb1-0edc-47cb-9642-753377ed22d2"/>
+				<textFieldExpression><![CDATA[$F{whatsaap}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="217" y="104" width="55" height="20" uuid="27042a87-da9c-44df-b09d-3f4121953dd2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Whatsaap:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="388" y="103" width="170" height="20" uuid="502b2308-02dc-46b6-82e0-1ebbf735a3bf"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="168" y="126" width="281" height="20" uuid="e6946c91-03ba-4a09-90b1-00a0dbd843c2"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{facebook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="59" width="215" height="40" uuid="b244bbbc-da6a-4ee0-8a7b-229d20456733"/>
+				<textFieldExpression><![CDATA[$F{ubicacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="59" width="143" height="20" uuid="d14a067c-4021-4b09-9b9d-ca1c9d0f988d"/>
+				<textFieldExpression><![CDATA[$F{paisEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="59" width="139" height="20" uuid="4b38da6f-909f-434c-9080-47e9f657c05e"/>
+				<textFieldExpression><![CDATA[$F{ciudadEmpresa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

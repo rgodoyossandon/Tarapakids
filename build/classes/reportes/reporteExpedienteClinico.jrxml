@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="515" leftMargin="56" rightMargin="41" topMargin="25" bottomMargin="24" uuid="9a0e4ac8-7636-467d-9c9e-967dc48e7e05">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="IdPaciente" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\SISTEMA CLINICA DENTAL\\sysClinicaDental\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM consultas WHERE IdPaciente=$P{IdPaciente}]]>
+	</queryString>
+	<field name="IdConsulta" class="java.lang.String"/>
+	<field name="IdPaciente" class="java.lang.String"/>
+	<field name="IdServicio" class="java.lang.String"/>
+	<field name="IdTratamiento" class="java.lang.String"/>
+	<field name="IdEspecialista" class="java.lang.String"/>
+	<field name="diagnostico" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="hora" class="java.lang.String"/>
+	<variable name="IdS" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="125" splitType="Stretch">
+			<subreport>
+				<reportElement x="11" y="6" width="493" height="108" uuid="15636ab2-7f79-4055-8aa0-7badfafec169"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteEncabezadoEmpresa.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="108">
+			<rectangle radius="10">
+				<reportElement x="5" y="4" width="500" height="92" forecolor="#FFFFFF" backcolor="#E3E3E3" uuid="b0c06b28-2b41-4072-a75a-fa216849c9a7"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="126" y="8" width="282" height="23" forecolor="#FF0000" uuid="610fed11-ecaa-4987-8288-28c59cdee6fc"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL PACIENTE]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="11" y="31" width="480" height="65" uuid="8309f70d-8612-456c-818f-f15f01e321d4"/>
+				<subreportParameter name="idPac">
+					<subreportParameterExpression><![CDATA[$F{IdPaciente}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteDatosPaciente.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="47" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="515" height="28" forecolor="#FFFFFF" backcolor="#CCCCFF" uuid="255052ea-97b5-4922-8f8e-95758fc3858a"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="137" y="1" width="282" height="26" forecolor="#FF0000" uuid="f19aa969-dd6c-4fdd-910f-f021b4bcc165"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HISTORIAL CLINICO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="138" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="20" width="515" height="26" forecolor="#FFFFFF" backcolor="#CCCCFF" uuid="14f0b908-e7a3-45bb-82e7-f0c21ca611a1"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="126" height="20" forecolor="#FFFFFF" backcolor="#CCCCFF" uuid="ec1d0635-0553-4de2-aa09-a53bcb9e4881"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="4" width="62" height="20" forecolor="#FF0000" uuid="503a39d8-d80a-4023-824f-f954e3985582"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº Consulta:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="3" width="56" height="20" uuid="bc285e45-4c75-4898-ba01-7961c4bdea80"/>
+				<textElement>
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Realizada el:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="24" width="515" height="17" forecolor="#0066FF" uuid="68f05e8e-c141-4e9a-bc6f-c0293c4142e1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DETALLE DE LA CONSULTA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="66" y="3" width="71" height="20" forecolor="#FF0000" uuid="0517ff57-5b4d-449c-a5d8-7e6f4738b366"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IdConsulta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="3" width="100" height="20" uuid="8984c9f3-70c6-4167-8a52-0735f1483ef4"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="3" width="174" height="20" uuid="af803e15-4dca-466c-97e8-1c037305e9ae"/>
+				<textFieldExpression><![CDATA[$F{hora}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="302" y="3" width="39" height="20" uuid="32e33fde-594d-4fc5-8cf2-adef52291979"/>
+				<textElement>
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="55" y="48" width="421" height="15" uuid="53846504-54b1-4379-85b3-60add4d8ba17"/>
+				<textFieldExpression><![CDATA[$F{diagnostico}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="48" width="55" height="15" uuid="34d93022-731e-4f9d-8900-6a5fac1ea135"/>
+				<textElement>
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Diagnostico:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="6" y="131" width="498" height="1" forecolor="#0066CC" uuid="2ed3a2ce-69af-464c-b029-73a4c7277398"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="11" y="63" width="480" height="68" uuid="63f1ba86-0e1d-4879-999f-94269125ed8b"/>
+				<subreportParameter name="idS">
+					<subreportParameterExpression><![CDATA[$F{IdServicio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="idT">
+					<subreportParameterExpression><![CDATA[$F{IdTratamiento}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="idE">
+					<subreportParameterExpression><![CDATA[$F{IdEspecialista}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteSET.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="0" width="100" height="20" uuid="3b8f8498-332f-4fd6-8038-b78f9198fce2"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="4" width="80" height="20" uuid="c0388731-62b6-4ffc-8bc7-a4474612d8b0"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="476" y="4" width="40" height="20" uuid="88963c06-bb3f-4f72-8bbc-ab77cfa3e59b"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

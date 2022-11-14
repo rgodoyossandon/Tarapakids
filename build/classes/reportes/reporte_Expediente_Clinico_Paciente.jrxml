@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="504" leftMargin="72" rightMargin="36" topMargin="36" bottomMargin="36" uuid="67dc7cd0-f8d3-4d04-ac53-0a26f90d4376">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="176"/>
+	<parameter name="IdPaciente" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Proyectos\\Netbeans\\SISTEMA_CLINICA_DENTAL\\sysClinicaDental\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT c.* FROM consultas as c WHERE c.IdPaciente=$P{IdPaciente}]]>
+	</queryString>
+	<field name="IdConsulta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="IdPaciente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="IdServicio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="IdTratamiento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="IdEspecialista" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="diagnostico" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hora" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="105" splitType="Stretch">
+			<subreport>
+				<reportElement x="-49" y="0" width="200" height="100" uuid="44321096-7f0c-4d54-a957-0886c775e4ea"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporte_Encabezado_Datos_Empresa.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="109" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="1" width="502" height="103" forecolor="#CCCCCC" backcolor="#FFFFFF" uuid="98cd5440-bdac-4433-b9ec-b9bb6396a7a5"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="136" y="3" width="247" height="20" forecolor="#FF0033" uuid="fcfd977d-a9ef-4522-b7bb-f8d76c0cd80a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL PACIENTE]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="-49" y="23" width="200" height="65" uuid="425dc6c3-ec46-4903-8004-72cd84bd141d"/>
+				<subreportParameter name="IdPaciente">
+					<subreportParameterExpression><![CDATA[$P{IdPaciente}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporte_Datos_Del_Paciente.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="2" y="0" width="500" height="20" forecolor="#FFFFFF" backcolor="#CCCCFF" uuid="adec3615-4d1d-4e78-90a3-f8745f49fe27"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="136" y="2" width="247" height="20" forecolor="#FF0033" uuid="a79d9748-baf6-4149-9418-e64b9384f7fd"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DETALLE DE CONSULTAS REALIZADAS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="180" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="8" y="94" width="487" height="20" forecolor="#FFFFFF" backcolor="#F0F0F0" uuid="2a970bd7-09dd-4948-b244-a1a112108ae4"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="4" y="24" width="491" height="20" forecolor="#FFFFFF" backcolor="#F0F0F0" uuid="b56c65fa-ad31-4ae0-87af-f9222bfa75db"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="3" y="4" width="182" height="20" forecolor="#FFFFFF" backcolor="#CCFFCC" uuid="ab155db9-16d9-472a-a7c4-38a446105279"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="32" y="44" width="441" height="48" forecolor="#CCCCCC" uuid="270543d8-6f4b-4f90-b2a3-a4535ffe5d8e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="104" y="4" width="81" height="20" forecolor="#FF0000" uuid="60c31697-d672-4e96-ad01-6233871e4a99"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IdConsulta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="4" width="96" height="20" forecolor="#0000CC" uuid="64a6fa5d-cd25-4e5f-84eb-05c270f264f4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° CONSULTA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="242" y="4" width="100" height="20" uuid="908ee7fc-0ce5-47fe-8f81-d30bae45bd28"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="195" y="4" width="47" height="20" forecolor="#0000CC" uuid="a74843b6-bb29-4baa-9151-f927b9ceb5dc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="381" y="4" width="100" height="20" uuid="eea01f62-798a-456d-bbf8-1207cd239468"/>
+				<textFieldExpression><![CDATA[$F{hora}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="342" y="4" width="39" height="20" forecolor="#0000CC" uuid="32180e19-1313-40c8-b810-542add344f3c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="46" y="44" width="407" height="47" uuid="48dcdfee-2d0c-4c82-b30c-dccc80d4115b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnostico}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="113" y="26" width="247" height="20" forecolor="#0000CC" uuid="f4b96b7b-997f-405f-bd83-ad34f1f6aa69"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIAGNOSTICO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="4" y="173" width="500" height="1" uuid="d596fa68-35ae-4ac0-b094-074879d5f1c0"/>
+				<graphicElement>
+					<pen lineWidth="4.5" lineStyle="Double" lineColor="#CCCCFF"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="46" y="96" width="407" height="21" uuid="fd2ff04b-893c-4c75-b07c-65f818c65dfe"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Servicio/Tratamiento Aplicado]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="-39" y="117" width="200" height="50" uuid="07ceedf1-aa57-4b17-ae86-65bc6fd9ac25"/>
+				<subreportParameter name="idS">
+					<subreportParameterExpression><![CDATA[$F{IdServicio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="idT">
+					<subreportParameterExpression><![CDATA[$F{IdTratamiento}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="idE">
+					<subreportParameterExpression><![CDATA[$F{IdEspecialista}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteSET.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="3" y="2" width="100" height="20" uuid="c9b81a1f-0b10-4d45-a31f-45f403393e17"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="2" width="80" height="20" uuid="98f39f59-54dc-4d31-8253-141b968e3745"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pag. "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="461" y="2" width="40" height="20" uuid="7a3b99d5-5cb1-4d97-9ae3-85ec6ef9f677"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
